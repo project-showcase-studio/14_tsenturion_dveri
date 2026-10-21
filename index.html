@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ЦЕНТУРИОН — 3D-конфигуратор входных дверей</title>
+    <meta name="description" content="3D-конфигуратор завода «Центурион»: входные двери О-110, О-160, В-21, В-24, С-112 — размер, открывание, отделка снаружи и внутри, фурнитура, цены завода." />
+    <meta property="og:title" content="ЦЕНТУРИОН — 3D-конфигуратор входных дверей" />
+    <meta property="og:description" content="3D-конфигуратор завода «Центурион»: входные двери О-110, О-160, В-21, В-24, С-112 — размер, открывание, отделка снаружи и внутри, фурнитура, цены завода." />
+    <meta name="twitter:description" content="3D-конфигуратор завода «Центурион»: входные двери О-110, О-160, В-21, В-24, С-112 — размер, открывание, отделка снаружи и внутри, фурнитура, цены завода." />
+    <link rel="icon" href="assets/brand/centurion-logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="src/style.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "./vendor/three/three.module.min.js",
+          "three/addons/": "./vendor/three/addons/",
+          "three/examples/jsm/": "./vendor/three/addons/",
+          "postprocessing": "./vendor/postprocessing.js",
+          "n8ao": "./vendor/N8AO.js"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="app">
+      <main id="stage">
+        <div id="viewport"></div>
+        <div id="loader"><div class="loader-inner"><img src="assets/brand/centurion-logo.png" alt="ЦЕНТУРИОН" width="200" height="64" /><div class="loader-bar"><i></i></div><small>Завод входных дверей</small></div></div>
+        <header class="stage-head">
+          <a class="brand" href="https://centurion-door.ru" target="_blank" rel="noopener">
+            <img src="assets/brand/centurion-logo.png" alt="ЦЕНТУРИОН" width="130" height="42" />
+            <small>Завод входных<br />дверей · Новосибирск</small>
+          </a>
+          <nav class="models" id="models"></nav>
+        </header>
+        <a class="studio-link" href="studio-dist/studio.html">Предметная студия ↗</a>
+        <div class="stage-foot">
+          <div class="seg" id="views"></div>
+          <div class="seg" id="open"></div>
+          <div class="seg" id="tod"></div>
+          <div class="seg">
+            <button id="shot" title="Сохранить изображение 2560 × 1440">
+              <svg viewBox="0 0 24 24"><path d="M4 8h3l1.5-2h7L17 8h3v11H4z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="13" r="3.4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+              <span>Снимок</span>
+            </button>
+          </div>
+        </div>
+        <div class="hint" id="hint">Вращайте — левая кнопка мыши, приближайте — колесо</div>
+      </main>
+      <aside id="panel">
+        <div class="panel-scroll">
+          <section class="project" id="project"></section>
+          <div id="options"></div>
+        </div>
+        <footer class="summary" id="summary"></footer>
+      </aside>
+    </div>
+    <dialog id="request">
+      <form method="dialog" class="req">
+        <h3>Ваш заказ</h3>
+        <div id="req-body"></div>
+        <div class="req-actions">
+          <button value="copy" id="req-copy" class="btn ghost">Скопировать заказ</button>
+          <a id="req-link" class="btn primary" target="_blank" rel="noopener">Оформить на centurion-door.ru</a>
+        </div>
+        <button class="req-close" value="close" aria-label="Закрыть">×</button>
+      </form>
+    </dialog>
+    <script type="module" src="src/app.js"></script>
+  </body>
+</html>
